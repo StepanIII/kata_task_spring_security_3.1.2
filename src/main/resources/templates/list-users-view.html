@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+<!--    <link th:href="@{/style.css}" rel="stylesheet" type="text/css"/>-->
+    <meta charset="UTF-8">
+    <title>Admin panel</title>
+</head>
+<body>
+
+<h1>Admin panel</h1>
+
+<table border="collapse">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Number phone</th>
+        <th>Roles</th>
+        <th>Option</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"/>
+        <td th:text="${user.username}"/>
+        <td th:text="${user.surname}"/>
+        <td th:text="${user.age}"/>
+        <td th:text="${user.email}"/>
+        <td th:text="${user.numberPhone}"/>
+        <td>
+            <ul  th:each="role : ${user.roles}">
+                <p th:text="${role.name}"/>
+            </ul>
+        </td>
+        <td>
+            <a th:href="@{/admin/{id}/update(id=${user.id})}" class="updDel">Update</a>
+            <form th:action="@{/admin/{id}(id=${user.id})}" th:method="delete">
+                <input type="submit" value="Delete">
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="@{/admin/add}" id="addButton">Add new user</a>
+<br><br>
+<a th:href="@{/user}" id="user">User</a>
+<br><br>
+<a th:href="@{/logout}" id="logout">Logout</a>
+</body>
+</html>

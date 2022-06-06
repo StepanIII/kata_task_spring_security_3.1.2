@@ -1,0 +1,85 @@
+table {
+    float: left;
+    font-size: 20px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th {
+    background: #071d42;
+    color: #42a1ff;
+    padding: 10px;
+    white-space: pre-wrap;
+}
+
+td {
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: #071d42;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    background: #1b2d4a;
+    color: #d5dee0;
+    white-space: nowrap;
+}
+
+#addButton{
+    float: left;
+    margin-left: 5%;
+    cursor: pointer;
+    background: #071d42;
+    border: 2px solid #128200;
+    text-decoration: none;
+    outline: none;
+    transition: 1s ease-in-out;
+    padding: 8px 20px;
+    color: #42a1ff;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+#addButton:hover{
+    transition: 250ms ease-in-out;
+    background: #128200;
+}
+
+.updDel{
+    text-decoration: none;
+    color: #42a1ff;
+    font-size: 20px;
+}
+
+.updDel::before,
+.updDel::after {
+    display: inline-block;
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+    transition: transform 0.3s, opacity 0.2s;
+}
+
+.updDel::before {
+    margin-right: 10px;
+    content: '[';
+    -webkit-transform: translateX(20px);
+    -moz-transform: translateX(20px);
+    transform: translateX(20px);
+}
+
+.updDel::after {
+    margin-left: 10px;
+    content: ']';
+    -webkit-transform: translateX(-20px);
+    -moz-transform: translateX(-20px);
+    transform: translateX(-20px);
+}
+
+.updDel:hover::before,
+.updDel:hover::after,
+.updDel:focus::before,
+.updDel:focus::after {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    transform: translateX(0px);
+}
